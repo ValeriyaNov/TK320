@@ -2,8 +2,7 @@
   <div>
     <div class="main__center">
         <div class="scroller__title">
-            <p>Структура</p>
-            <p>технического комитета</p>
+            <p>Структура <br>технического комитета</p>
         </div>
         <div class="slider">
             <div class="slider__carousel">
@@ -21,16 +20,15 @@
                 <ul class="slider__navlinks">
                     <input class='slider__navlinks__point' type="radio"  v-for="points,index in slides" v-model="selectedImg" :value="index"  name="images" :key="index"/>
                 </ul>
-                </div>
             </div>
         </div>
     </div>
+  </div>
 </template>
 
 <script>
 export default {
   name: 'StructuraPkComponent',
-
   data() {
     return {
     selectedImg:0,
@@ -86,7 +84,6 @@ export default {
       ]
     };
   },
-
   computed:{
     image(){
         return this.slides[this.selectedImg].img
@@ -97,16 +94,16 @@ export default {
     text(){
         return this.slides[this.selectedImg].content
     },
-    
-    
   }
 };
 </script>
 
 <style lang="scss" scoped>
-    $widthSite: 1140px;
-    $colorTitle: #EEEED1;
-    $colorBack:#1f1e1e;
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    @import "@/assets/css-module/_vars.scss";
     .main__center {
         margin: auto;
         padding: 15px;
@@ -139,56 +136,85 @@ export default {
             flex-direction: row;
             align-items: center;
             justify-content: space-around;
-                
-                    &__title{
+            &__title{
                 font-family: 'Lato';
                 font-style: normal;
                 font-weight: 700;
                 font-size: 24px;
                 line-height: 17px;
-                color: #1f1e1e;}
-                    &__text{font-family: Lato;
-                font-size: 22px;
-                font-style: normal;
-                font-weight: 700;
-                line-height: normal;
-                color: #1f1e1e;}
+                color: #1f1e1e;
+                    }
+                &__text{
+                    font-family: Lato;
+                    font-style: normal;
+                    font-size: 22px;
+                    line-height: normal;
+                    font-weight: 700;
+                    color: #1f1e1e;
+                    }
+                }
+        &__images{
+            width:700px;
+            height:585px;
+            border-radius: 70px;
+            overflow: hidden;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
+            &__pic{
+                width:800px;
+                height:650px; 
+                }
+                }
+        &__navlinks{
+            &__point{
+                margin-left: 10px;
+                appearance: none;
+                width: 30px;
+                height: 30px;
+                border-radius: 30%;
+                background-color:$colorTitle;
+                border:5px solid $colorTitle; 
+                    }
+                &__point:checked{
+                    background-color:#973C28;
+                    border-color: #EEEED1;
+                    padding: 5px;
+                    transform: scale(1.2);
+                    } 
+                }
+            }
+    @media screen and (min-width:320px) and (max-width: 766px) {
+        $widthSite:320px;
+        .scroller__title{
+            font-size: 25px;
+            }
+        .slider{  
+            &__magnifier{
+                width: 130px;
+                height: 40px;
+                &__title{
+                    font-size: 14px;}
+                &__text{
+                    font-size: 12px;
+                    }
                 }
                 &__images{
-                    width:700px;
-        height:585px;
-        border-radius: 70px;
-        overflow: hidden;
-        margin-bottom: 20px;
-        display: flex;
-        justify-content: center;
-        
+                    width:300px;
+                    height:300px;
+                    border-radius: 30px;
                     &__pic{
-                        width:800px;
-                        height:650px; 
+                        width:300px;
+                        height:300px; 
                     }
                 }
                 &__navlinks{
                     &__point{
-                        margin-left: 10px;
-                        appearance: none;
-                        width: 30px;
-                        height: 30px;
-                        border-radius: 30%;
-                        background-color:$colorTitle;
-                        border:5px solid $colorTitle
-                        
-                    }
-                    &__point:checked{
-                        background-color:#973C28;
-                        border-color: #EEEED1;
-                        padding: 5px;
-                        transform: scale(1.2);
-                    }
-                    
+                        margin-left: 5px;
+                        width: 27px;
+                        height: 27px;
+                    } 
                 }
             }
-            
-            
-            
+        }
 </style>

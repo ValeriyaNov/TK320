@@ -3,25 +3,17 @@
     <HeaderComponent/>
     <router-view/>
     <FooterComponent/>
-    <!-- <nav>
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </nav>
-    <router-view/> -->
+  
   </div>
 </template>
 <script>
 import HeaderComponent from '@/components/HeaderComponent.vue'
 import FooterComponent from './components/FooterComponent.vue';
-//import StandartView from './views/StandartView.vue';
-//import HomeView from './views/HomeView.vue';
 export default {
   name: 'App',
   components: {
     HeaderComponent,
     FooterComponent,
-    //StandartView
-    //HomeView
    
 },
 }
@@ -36,6 +28,4 @@ export default {
   text-align: center;
   color: #2c3e50;
 }
-
-
 </style>

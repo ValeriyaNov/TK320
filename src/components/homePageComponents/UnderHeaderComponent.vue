@@ -8,9 +8,7 @@
                 <p class="header__title__content__text">Средства индивидуальной защиты</p>
             </div>
         </div>
-        <div class="header__enter">
-            <button class="header__enter__btn">Вход</button>
-        </div>
+        
   </div>
 </template>
 
@@ -35,32 +33,26 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-$widthSite: 1140px;
-$colorTitle: #EEEED1;
-$colorBack:#1f1e1e;
-* {
-                margin: 0;
-                padding: 0;
-                box-sizing: border-box;
+    @import "@/assets/css-module/_vars.scss";
+    * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
             }
-
-
-.header{
-
-    background-image: url(@/assets/img/zavod2.jpg);
-    background-repeat: no-repeat;
-    //position: relative;
-    background-size: cover;
-    background-color: $colorTitle;
-    color: $colorTitle;
-    height: 70vh;
-    background-color: #0008;
-    background-blend-mode: darken;
-    box-shadow: 0 0 8px 8px #1f1e1e inset;
-    &__title{
+    .header{
+        background-image: url(@/assets/img/zavod2.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-color: $colorTitle;
+        color: $colorTitle;
+        height: 70vh;
+        background-color: #0008;
+        background-blend-mode: darken;
+        box-shadow: 0 0 8px 8px #1f1e1e inset;
+        &__title{
         padding-top: 200px;
-        margin-left: calc(50% - $widthSite/3);
-        margin-right: calc(50% - $widthSite/2);
+        padding-left: calc(50% - $widthSite/2 + 10px);
+        padding-right: calc(50% - $widthSite/2 + 10px);
         &__designation{
             &__text{
                 font-family: Lato;
@@ -69,53 +61,62 @@ $colorBack:#1f1e1e;
                 font-weight: 700;
                 line-height: normal;
                 color: $colorTitle;
-                
+                }
             }
-        }
-    &__content{
-        &__text{
-            font-family: Lato;
+        &__content{
+            &__text{
+                font-family: Lato;
                 font-size: 50px;
                 font-style: normal;
                 font-weight: 700;
                 line-height: normal;
                 color: $colorTitle;
-                
+                }
+            }
         }
-    }
-    }
-    &__enter{
-        margin-top: 50px;
+}
+    .container {
+        display: flex;
+        justify-content: space-between;
+            }
+@media screen and (min-width:767px) and (max-width: 1139px) {
+  $widthSite:767px;
+  .container{
+    display:grid;
+    grid-template-columns: 1;
+  }
+  .header{
+    padding-left: calc(50% - $widthSite/2 + 10px);
+    padding-right: calc(50% - $widthSite/2 + 10px);
+    &__content{
         display: flex;
         justify-content: center;
-        &__btn{
-            width: 150px;
-            display: flex;
-            height: 60px;
-            align-items: center;
-            flex-direction: row;
-            justify-content: space-around;
-            left: 50%;
-            top: 50%;
-            border: 2px solid #FFFFFF;
-            background: none;
-            font-family: 'Lato';
-            border-radius: 10px;
-            font-weight: 500;
-            font-style: normal;
-            line-height: 17px;
-            font-size: 32px;
-            color: $colorTitle;
-        }
-        &__btn:hover{
-            background-color: $colorTitle;
-                color: #1f1e1e;
-                transition: 1s; 
+    }
+  } 
+}
+@media screen and (min-width:320px) and (max-width: 766px) {
+  $widthSite:320px;
+  .container{
+    display:grid;
+    grid-template-columns: 1;
+  }
+  .header{
+    height: 40vh;
+    padding-left: calc(50% - $widthSite/2 + 10px);
+    padding-right: calc(50% - $widthSite/2 + 10px);
+    &__title{
+        padding-top: 40px;
+    &__designation__text{
+        font-size: 35px;
+    }
+    &__content{
+        display: flex;
+    justify-content: center;
+        &__text{
+            font-size: 30px;
         }
     }
+  }    
+}  
 }
-.container {
-                display: flex;
-                justify-content: space-between;
-            }
 </style>

@@ -32,7 +32,17 @@ const routes = [{
         name: 'contact',
         component: () =>
             import ('../views/ContactView.vue')
-    }
+    },
+    {
+        path: '*',
+        redirect: '/404',
+    },
+    {
+        path: '/404',
+        name: '404',
+        component: () =>
+            import ('../components/NotFound.vue')
+    },
 ]
 
 const router = new VueRouter({

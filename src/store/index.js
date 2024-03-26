@@ -212,7 +212,7 @@ export default new Vuex.Store({
         contacts: [{
                 id: 0,
                 name: 'Колесников Николай Владимирович',
-                job: 'Руководитель направления стандартизации и испытаний',
+                job: 'Председатель',
                 tel: '+7-495-856-4576',
                 mail: 'kolesnik@tec.ru',
                 url: 'Predsedatel.jpg'
@@ -220,7 +220,7 @@ export default new Vuex.Store({
             {
                 id: 1,
                 name: 'Иванов Павел Семенович',
-                job: 'Руководитель отдела закупок ',
+                job: 'Зам. председателя',
                 tel: '+7-495-856-4579',
                 mail: 'ivanov@tec.ru',
                 url: 'Ivanov.jpg'
@@ -228,7 +228,7 @@ export default new Vuex.Store({
             {
                 id: 2,
                 name: 'Новик Валерия Сергеевна',
-                job: 'Ведущий инженер отдела стандартизации',
+                job: 'Ответственный секретарь',
                 tel: '+7-495-856-4585',
                 mail: 'novik@tec.ru',
                 url: 'novik.jpg'
@@ -263,15 +263,8 @@ export default new Vuex.Store({
         clickTagFilter({ commit, state }, event) {
             if (event) {
                 const tagName = event.target.textContent.trim();
-                //console.log(tagName);
                 commit('setTagsForFiltering', tagName);
                 const filteredStandarts = state.standarts.filter(standart => standart.type === tagName);
-
-                // const filteredStandarts = state.standarts.filter(standart => {
-                //     return getters.getActiveTags.some(tag => standart.type === tag.name);
-
-                //});
-                console.log(filteredStandarts);
                 commit('setFilterProjects', filteredStandarts);
             } else {
                 const filteredStandarts = state.standarts;

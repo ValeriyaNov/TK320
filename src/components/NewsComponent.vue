@@ -14,19 +14,10 @@
     </div>
   </div>
 </template>
-
 <script>
-//import { computed } from 'vue';
-
 export default {
   name: 'NewsComponent',
   props:['news'],
-  data() {
-    return {
-      
-    }
-  },
-
   computed: {
     getClass(){
         let clasas = '';
@@ -39,19 +30,14 @@ export default {
         return clasas
         },
   },
-
-  methods: {
-  }
 };
 </script>
 
 <style lang="scss" scoped>
-$widthSite: 1140px;
-$colorTitle: #EEEED1;
-$colorBack:#1f1e1e;
+ @import "@/assets/css-module/_vars.scss";
 .news{
     background-color: $colorBack;
-    width: 560px;
+    width: 540px;
     &__title{
         margin-top: 20px;
         margin-bottom: 20px;
@@ -67,7 +53,6 @@ $colorBack:#1f1e1e;
         padding-left: 25px;
         padding-right: 15px;
         height: 100px;
-        //transition-duration: 2s linear;
         overflow: hidden;
         &__text{color: $colorTitle;
                 font-family: Lato;
@@ -75,14 +60,13 @@ $colorBack:#1f1e1e;
                 font-style: normal;
                 font-weight: 400;
                 line-height: normal;
-            text-align: start;}
+                text-align: start;}
     }
     &__igon{
         &__item{
             width: 50px;
             fill:#C14067;
             transition: 1s;
-            
         }
     &__igon:hover .news__content{
             height: 500px;
@@ -90,30 +74,70 @@ $colorBack:#1f1e1e;
     }
     &__image1{
         background-image: url(@/assets/img/meeting.jpg);
-        width: 560px;
+        width: 540px;
         height: 200px;
-        //background-position: 0px -60px;
+        background-size: 100%;
     }
     &__image2{
         background-image: url(@/assets/img/standart.jpg);
-        width: 560px;
+        width: 540px;
         height: 200px;
-        //background-position: 0px -60px;
+        background-size: 100%;
     }
     &__image3{
         background-image: url(@/assets/img/other.jpg);
-        width: 560px;
+        width: 540px;
         height: 200px;
         background-position: 0px -60px;
+        background-size: 100%;
     }
 }
-.news:hover  .news__igon__item {
+    .news:hover  .news__igon__item {
     transform: rotate(180deg);
     transition: 1s;
     }
     .news:hover  .news__content {
     height: 100%;
-    //transition-duration: 4s linear;
     }
-
+@media screen and (min-width:320px) and (max-width: 766px) {
+    .news{
+        width: 300px;
+        &__title{
+            margin-top: 5px;
+            margin-bottom: 5px;
+            height: 60px;
+            &__text{
+                font-size: 20px;
+                }
+            }
+        &__content{
+            &__text{
+                font-size: 16px;
+                }
+            }
+        &__igon{
+            &__item{
+                width: 30px;
+        }   
+        &__igon:hover .news__content{
+            height: 500px;
+        }
+        }
+        &__image1{
+            width: 300px;
+            height: 100px;
+            background-size: 100%;
+        }
+        &__image2{
+            background-size: 100%;
+            width: 300px;
+            height: 100px;
+        }
+        &__image3{
+            background-size: 100%;
+            width: 300px;
+            height: 100px;
+        }
+    }
+  }
 </style>
